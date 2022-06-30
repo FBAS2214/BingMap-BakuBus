@@ -40,6 +40,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
 
 
+
         // Timer timer = new Timer();
         // timer.Interval = 1000;
         // timer.Elapsed += Timer_Elapsed;
