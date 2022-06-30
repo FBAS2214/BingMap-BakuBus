@@ -1,0 +1,76 @@
+﻿<Window x:Class="BingMap.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BingMap" 
+        xmlns:map="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <ControlTemplate x:Key="myPushPin" TargetType="map:Pushpin">
+            <Grid>
+                <Ellipse Width="30" Height="30" x:Name="outerCircle">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Offset="0" Color="Green"></GradientStop>
+                            <GradientStop Offset="1" Color="Purple"></GradientStop>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="30" Height="30">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Offset="0" Color="Gray"></GradientStop>
+                            <GradientStop Offset="1" Color="Blue"></GradientStop>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <!--<map:Map Mode="AerialWithLabels" ZoomLevel="12" Center="40.4093, 49.8671" Name="m">
+            <map:Pushpin Template="{StaticResource myPushPin}" Location="40.403161333333330, 49.802577333333332"></map:Pushpin>
+            <map:Pushpin Template="{StaticResource myPushPin}" Location="40.413161333333330, 49.802577333333332"></map:Pushpin>
+
+            -->
+        <!--<map:MapItemsControl ItemsSource="{Binding Test}">
+                <map:MapItemsControl>
+                    <DataTemplate>
+                    </DataTemplate>
+                </map:MapItemsControl>
+            </map:MapItemsControl>-->
+        <!--
+        </map:Map>-->
+
+
+
+        <!--<TextBlock Name="txt" FontSize="38">Test</TextBlock>-->
+
+
+
+
+        <ListView ItemsSource="{Binding BakuBus.BUS}">
+            <ListView.View>
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Buses">
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.BUS_ID}" Header="BUS_ID" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.PLATE}" Header="PLATE" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.DRIVER_NAME}" Header="DRIVER_NAME" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.PREV_STOP}" Header="PREV_STOP" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.CURRENT_STOP}" Header="CURRENT_STOP" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.SPEED}" Header="SPEED" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.BUS_MODEL}" Header="BUS_MODEL" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.LATITUDE}" Header="LATITUDE" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.LONGITUDE}" Header="LONGITUDE" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.ROUTE_NAME}" Header="ROUTE_NAME" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.LAST_UPDATE_TIME}" Header="LAST_UPDATE_TIME" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Attributes.DISPLAY_ROUTE_CODE}" Header="ROUTE_CODE" Width="auto"/>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
